@@ -2,6 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="description" content="Sklep OLONE - najwyższej jakości klawiatury mechaniczne, myszki gamingowe i huby USB. Sprawdź ofertę sprzętu dla graczy i profesjonalistów z wysyłką z Polski.">
@@ -39,6 +40,15 @@
         footer { padding: 40px; text-align: center; border-top: 1px solid #333; background: #000; }
         footer a { color: var(--accent); margin: 0 10px; text-decoration: none; }
         ul { text-align: left; max-width: 800px; margin: auto; }
+
+        /* Dodane poprawki na telefon */
+        img { max-width: 100%; height: auto; }
+        @media (max-width: 768px) {
+            nav { padding: 15px; flex-direction: column; text-align: center; }
+            .menu { margin-top: 15px; }
+            .menu a { margin: 0 10px; display: inline-block; }
+            .news-box { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body>
