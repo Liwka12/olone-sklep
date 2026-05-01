@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Sklep OLONE - najwyższej jakości klawiatury mechaniczne, myszki gamingowe i huby USB. Sprawdź ofertę sprzętu dla graczy i profesjonalistów z wysyłką z Polski.">
+    <meta name="keywords" content="OLONE, klawiatury mechaniczne, myszki gamingowe, huby USB, sprzęt komputerowy, gaming setup, sklep dla graczy">
+    <meta name="author" content="OLONE">
+    <meta property="og:title" content="OLONE | Power Your Game">
+    <meta property="og:description" content="Najwyższej jakości sprzęt gamingowy i biurowy. Sprawdź ofertę OLONE!">
+    
+    <title>OLONE | Power Your Game</title>
+    
+    <style>
+        :root { --bg: #050505; --accent: #8a2be2; --text: #d1d1d1; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: var(--bg); color: var(--text); }
+        nav { display: flex; justify-content: space-between; padding: 20px 50px; background: rgba(0,0,0,0.9); border-bottom: 2px solid var(--accent); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        .logo { font-size: 24px; font-weight: 900; color: var(--accent); cursor: pointer; }
+        .menu a { color: #fff; margin-left: 20px; text-decoration: none; font-weight: bold; cursor: pointer; }
+        .menu a:hover { color: var(--accent); }
+        
+        .page { display: none; padding: 50px 10%; animation: fadeIn 0.6s; }
+        .active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .hero-img { width: 300px; display: block; margin: 0 auto 30px; }
+        .news-box { background: #111; border: 1px solid #333; border-radius: 20px; display: flex; padding: 40px; gap: 40px; align-items: center; }
+        
+        .carousel-track { display: flex; animation: scroll 20s linear infinite; gap: 20px; margin-top: 30px; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-1000px); } }
+        .carousel-track img { width: 200px; height: 120px; border-radius: 10px; border: 1px solid var(--accent); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px; }
+        .card { background: #151515; padding: 20px; border-radius: 20px; border: 1px solid #444; transition: 0.3s; text-align: center; }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        .btn { display: inline-block; padding: 12px 25px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 10px; font-weight: bold; margin-top: 15px; }
+        
+        footer { padding: 40px; text-align: center; border-top: 1px solid #333; background: #000; }
+        footer a { color: var(--accent); margin: 0 10px; text-decoration: none; }
+        ul { text-align: left; max-width: 800px; margin: auto; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" onclick="showPage('home')">OLONE</div>
+        <div class="menu">
+            <a onclick="showPage('home')">Główna</a>
+            <a onclick="showPage('oferta')">Oferta</a>
+            <a onclick="showPage('onas')">O nas</a>
+            <a onclick="showPage('kontakt')">Kontakt</a>
+        </div>
+    </nav>
+
+    <div id="home" class="page active">
+        <img src="logo.png" class="hero-img" alt="Logo OLONE">
+        <div class="news-box">
+            <img src="liwka.png" style="width:300px; border-radius:15px;">
+            <div>
+                <h2>Współpraca z LIWKA</h2>
+                <p>Mamy okazję współpracować z LIWKA. Liwka to Youtuber, który zajmuje się składaniem oraz rzetelną recenzją produktów. Przy jego współpracy nasz sprzęt zostanie solidnie wyselekcjonowany. #Liwka #Gaming</p>
+            </div>
+        </div>
+        <div style="overflow:hidden; margin-top:50px;">
+            <div class="carousel-track">
+                <img src="projekt_66.png"><img src="projekt_56.png"><img src="hub_1.png"><img src="projekt_71.png"><img src="projekt_79.png">
+                <img src="projekt_66.png"><img src="projekt_56.png"><img src="hub_1.png"><img src="projekt_71.png"><img src="projekt_79.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="oferta" class="page">
+        <h2>Nasza Oferta</h2>
+        <div class="grid">
+            <div class="card"><img src="projekt_66.png" style="width:100%;"><h3>Klawiatura Gamingowa</h3><a href="https://allegro.pl/uzytkownik/OLONE/elektronika" class="btn">KUP TERAZ</a></div>
+            <div class="card"><img src="projekt_56.png" style="width:100%;"><h3>Myszka</h3><a href="https://allegro.pl/uzytkownik/OLONE/elektronika" class="btn">KUP TERAZ</a></div>
+            <div class="card"><img src="hub_1.png" style="width:100%;"><h3>HUB USB</h3><a href="https://allegro.pl/uzytkownik/OLONE/elektronika" class="btn">KUP TERAZ</a></div>
+            <div class="card"><img src="projekt_71.png" style="width:100%;"><h3>Zestaw Bezprzewodowy</h3><a href="https://allegro.pl/uzytkownik/OLONE/elektronika" class="btn">KUP TERAZ</a></div>
+            <div class="card"><img src="projekt_79.png" style="width:100%;"><h3>Zestaw Przewodowy</h3><a href="https://allegro.pl/uzytkownik/OLONE/elektronika" class="btn">KUP TERAZ</a></div>
+        </div>
+    </div>
+
+    <div id="onas" class="page">
+        <h2>O nas</h2>
+        <p>Marka OLONE została stworzona z pasji przez graczy dla graczy. Wykorzystując wiedzę z branży IT, tworzymy sprzęt doskonale wyceniony, który sprawdzi się w każdym gamingowym kąciku. Nasz sprzęt nie jest dedykowany tylko graczom, ale także osobom do pracy – w swojej ofercie posiadamy akcesoria, które przeszły szereg testów w branży biurowej, więc w pracy sprawdzą się równie idealnie.</p>
+    </div>
+
+    <div id="kontakt" class="page">
+        <h2>Kontakt</h2>
+        <p>📧 Email: sklepopolne@outlook.com</p>
+        <p>📱 Telefon: +48 608 152 502</p>
+    </div>
+
+    <div id="polityka" class="page">
+        <h2>Polityka Prywatności</h2>
+        <ul>
+            <li>1. Administrator danych: Właściciel marki OLONE.</li>
+            <li>2. Cel zbierania: Realizacja zamówień.</li>
+            <li>3. Bezpieczeństwo: Szyfrowanie SSL.</li>
+            <li>4. Allegro: Zakupy przez Allegro (nadrzędny regulamin).</li>
+            <li>5. Ciasteczka: Techniczne cele działania strony.</li>
+            <li>6. Dobrowolność: Dane niezbędne do zakupu.</li>
+            <li>7. Twoje Prawa: Wgląd i usunięcie danych.</li>
+            <li>8. Przechowywanie: Czas obsługi zamówienia.</li>
+            <li>9. Udostępnianie: Nie sprzedajemy danych.</li>
+            <li>10. Statystyki: Analiza ruchu.</li>
+            <li>11. Zapytania: Kontakt mailowy.</li>
+            <li>12. Zmiany: Polityka aktualizowana.</li>
+            <li>13. Akceptacja: Korzystanie ze strony = akceptacja.</li>
+            <li>14. Linki: Brak odpowiedzialności za strony trzecie.</li>
+            <li>15. Nadzór: Zgodność z UODO.</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2026 OLONE. Wszystkie prawa zastrzeżone. | <a onclick="showPage('polityka')" style="cursor:pointer">Polityka Prywatności</a></p>
+        <a href="#">Instagram</a> | <a href="#">YouTube</a>
+    </footer>
+
+    <script>
+        function showPage(p) {
+            document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
+            document.getElementById(p).classList.add('active');
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>
