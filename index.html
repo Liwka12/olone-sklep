@@ -1,271 +1,1290 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="description" content="Sklep OLONE - lider innowacyjnego sprzętu gamingowego w 2026 roku. Klawiatury mechaniczne K61, myszki i huby USB stworzone z pasji do e-sportu. Wybierz jakość OLONE.">
-    <meta name="keywords" content="OLONE, sklep gamingowy 2026, klawiatura K61, sprzęt dla graczy, mechaniczne klawiatury, gaming setup polska">
-    <meta name="author" content="OLONE">
-    <meta property="og:title" content="OLONE | Power Your Game - Nowa Era Gamingu">
-    <meta property="og:image" content="logo.png">
-    
-    <title>OLONE | Power Your Game - Edycja 2026</title>
-    
-    <style>
-        :root { 
-            --bg: #030303; 
-            --accent: #8a2be2; 
-            --accent-glow: rgba(138, 43, 226, 0.4);
-            --text: #ececec; 
-            --glass: rgba(255, 255, 255, 0.03); 
-        }
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="OLONE - lider innowacyjnego sprzętu gamingowego w 2026 roku. Klawiatury mechaniczne K61, myszki i huby USB stworzone z pasji do e-sportu.">
+<meta name="keywords" content="OLONE, sklep gamingowy 2026, klawiatura K61, sprzęt dla graczy, mechaniczne klawiatury">
+<meta name="author" content="OLONE">
+<meta property="og:title" content="OLONE | Power Your Game">
+<meta property="og:image" content="logo.png">
+<title>OLONE | Power Your Game — 2026</title>
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-        body { 
-            margin: 0; 
-            font-family: 'Syne', 'Segoe UI', sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text); 
-            overflow-x: hidden;
-            /* Mesh Gradient Tło 2026 */
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(138, 43, 226, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(138, 43, 226, 0.1) 0px, transparent 50%);
-        }
+<style>
+:root {
+  --bg: #060608;
+  --surface: #0d0d12;
+  --surface2: #13131a;
+  --accent: #7c3aed;
+  --accent2: #a855f7;
+  --accent-glow: rgba(124, 58, 237, 0.35);
+  --accent-glow2: rgba(168, 85, 247, 0.2);
+  --text: #f0eefa;
+  --muted: #8b8a9e;
+  --border: rgba(124, 58, 237, 0.18);
+  --border-bright: rgba(124, 58, 237, 0.5);
+  --green: #22c55e;
+  --white: #ffffff;
+  --font-display: 'Bebas Neue', cursive;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
 
-        /* ULEPSZENIE: Pasek postępu przewijania */
-        #scroll-progress {
-            position: fixed; top: 0; left: 0; width: 0%; height: 3px;
-            background: var(--accent); box-shadow: 0 0 10px var(--accent);
-            z-index: 2100; transition: width 0.1s;
-        }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Dynamiczna Nawigacja */
-        nav { 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 25px 8%; background: rgba(0,0,0,0.7); 
-            border-bottom: 1px solid rgba(138, 43, 226, 0.2); 
-            position: sticky; top: 0; z-index: 2000; 
-            backdrop-filter: blur(20px); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
-        }
-        nav.shrink { padding: 12px 8%; background: rgba(0,0,0,0.9); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+html { scroll-behavior: smooth; }
 
-        .logo { font-size: 28px; font-weight: 900; color: #fff; cursor: pointer; letter-spacing: 2px; transition: 0.4s; }
-        .logo span { color: var(--accent); text-shadow: 0 0 15px var(--accent); }
-        nav.shrink .logo { font-size: 22px; }
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: none;
+}
 
-        .menu a { color: #aaa; margin-left: 30px; text-decoration: none; font-weight: 600; cursor: pointer; transition: 0.3s; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
-        .menu a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent); }
+/* ─── CUSTOM CURSOR ─── */
+#cursor {
+  width: 12px; height: 12px;
+  background: var(--accent2);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: screen;
+}
+#cursor-ring {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.3s, height 0.3s, opacity 0.3s;
+  opacity: 0.6;
+}
+body:hover #cursor { opacity: 1; }
 
-        /* Struktura Stron */
-        .page { display: none; padding: 60px 8%; opacity: 0; transform: scale(0.98); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-        .active { display: block; opacity: 1; transform: scale(1); }
+/* ─── SCROLL PROGRESS ─── */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), #ec4899);
+  box-shadow: 0 0 12px var(--accent);
+  z-index: 3000; transition: width 0.08s linear;
+}
 
-        /* Hero Image */
-        .hero-img { 
-            width: 100%; max-width: 350px; display: block; margin: 0 auto 40px; 
-            filter: drop-shadow(0 0 30px var(--accent-glow)); 
-            transition: 0.6s ease; 
-        }
-        .hero-img:hover { transform: rotate(-2deg) scale(1.05); }
+/* ─── NOISE OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 1; opacity: 0.35;
+}
 
-        /* Posty i Boxy */
-        .news-box { 
-            background: var(--glass); border: 1px solid rgba(255,255,255,0.08); 
-            border-radius: 30px; display: flex; padding: 50px; gap: 50px; 
-            align-items: center; margin-bottom: 40px; position: relative; overflow: hidden;
-            backdrop-filter: blur(10px); transition: 0.4s;
-        }
-        .news-box:hover { border-color: var(--accent); box-shadow: 0 0 40px rgba(138, 43, 226, 0.15); }
-        
-        .news-box h2 { font-size: 32px; margin-top: 0; color: #fff; }
-        .news-box p { font-size: 18px; color: #bbb; line-height: 1.8; }
+/* ─── PARTICLES BG ─── */
+#particles-canvas {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0; opacity: 0.4;
+}
 
-        /* Animacja Lewitacji */
-        .float-anim { animation: float 4s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+/* ─── NAV ─── */
+nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 24px 6%;
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 2000;
+  transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+nav.scrolled {
+  background: rgba(6,6,8,0.92);
+  backdrop-filter: blur(24px) saturate(1.5);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 6%;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.6);
+}
 
-        /* Galeria / Slider */
-        .carousel-container { overflow: hidden; padding: 40px 0; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-        .carousel-track { display: flex; animation: scroll 25s linear infinite; gap: 30px; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-1500px); } }
-        .carousel-track img { height: 180px; width: auto; border-radius: 20px; border: 1px solid rgba(138, 43, 226, 0.3); transition: 0.3s; filter: grayscale(0.5); }
-        .carousel-track img:hover { filter: grayscale(0); transform: scale(1.1); border-color: var(--accent); }
+.logo {
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 4px;
+  color: var(--white);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: 0.3s;
+}
+.logo span { color: var(--accent2); }
+.logo::after {
+  content: 'OLONE';
+  position: absolute; inset: 0;
+  color: var(--accent);
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: -1;
+}
+.logo:hover::after { opacity: 1; }
 
-        /* Oferta Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .card { 
-            background: var(--glass); padding: 40px 30px; border-radius: 35px; 
-            border: 1px solid rgba(255,255,255,0.05); transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1); 
-            text-align: center; position: relative;
-        }
-        .card:hover { transform: translateY(-20px); border-color: var(--accent); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
-        .card img { width: 100%; height: 220px; object-fit: contain; margin-bottom: 25px; transition: 0.5s; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5)); }
-        .card:hover img { transform: scale(1.1); }
-        
-        .btn { 
-            display: inline-block; padding: 15px 35px; 
-            background: linear-gradient(135deg, var(--accent), #5a1ca0); 
-            color: #fff; text-decoration: none; border-radius: 50px; 
-            font-weight: 800; margin-top: 20px; transition: 0.4s; 
-            border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
-        }
-        .btn:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--accent); }
+.menu { display: flex; gap: 8px; align-items: center; }
+.menu a {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s;
+  position: relative;
+}
+.menu a:hover { color: var(--white); background: rgba(124,58,237,0.12); }
+.menu a.nav-cta {
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+.menu a.nav-cta:hover {
+  background: var(--accent2);
+  box-shadow: 0 0 30px var(--accent-glow);
+  transform: scale(1.05);
+}
 
-        footer { padding: 60px; text-align: center; background: #000; border-top: 1px solid #111; }
-        footer a { color: var(--accent); margin: 0 15px; text-decoration: none; font-weight: 700; transition: 0.3s; }
-        footer a:hover { color: #fff; }
+/* ─── PAGES ─── */
+.page { display: none; position: relative; z-index: 2; min-height: 100vh; }
+.page.active { display: block; }
 
-        @media (max-width: 900px) {
-            nav { padding: 20px 5%; flex-direction: column; gap: 15px; }
-            .menu a { margin: 0 10px; font-size: 12px; }
-            .news-box { flex-direction: column; text-align: center; padding: 30px; }
-            .news-box img { width: 100% !important; margin: 0 !important; }
-        }
-    </style>
+/* ─── HERO SECTION ─── */
+#hero-section {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 120px 6% 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-glow {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 40%, rgba(124,58,237,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(168,85,247,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 10%, rgba(99,102,241,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-grid-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.hero-grid-lines::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, var(--bg) 100%);
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(124,58,237,0.12);
+  border: 1px solid var(--border-bright);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 32px;
+  animation: fadeSlideUp 0.8s ease both;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 12vw, 160px);
+  line-height: 0.88;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 8px;
+  animation: fadeSlideUp 0.8s 0.1s ease both;
+  position: relative;
+}
+.hero-title .accent-word {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--accent2);
+  position: relative;
+}
+.hero-title .accent-word::after {
+  content: attr(data-text);
+  position: absolute; left: 0; top: 0;
+  color: var(--accent2);
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  animation: revealText 1.5s 0.8s cubic-bezier(0.7,0,0.3,1) both;
+  filter: drop-shadow(0 0 20px var(--accent));
+}
+@keyframes revealText {
+  to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 2.5vw, 22px);
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.7;
+  margin: 28px auto 48px;
+  animation: fadeSlideUp 0.8s 0.25s ease both;
+  font-weight: 400;
+}
+.hero-subtitle strong { color: var(--accent2); font-weight: 600; }
+
+.hero-cta-group {
+  display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  animation: fadeSlideUp 0.8s 0.35s ease both;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 40px;
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 700; font-size: 15px;
+  letter-spacing: 1px; text-transform: uppercase;
+  border-radius: 12px;
+  border: none; cursor: pointer;
+  text-decoration: none;
+  position: relative; overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 0 30px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.btn-primary::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 40px var(--accent-glow), 0 0 60px var(--accent-glow2); }
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 40px;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 700; font-size: 15px;
+  letter-spacing: 1px; text-transform: uppercase;
+  border-radius: 12px;
+  border: 1px solid var(--border-bright); cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+.btn-secondary:hover { background: rgba(124,58,237,0.1); border-color: var(--accent2); color: var(--white); transform: translateY(-2px); }
+
+.hero-stats {
+  display: flex; gap: 48px; margin-top: 80px;
+  animation: fadeSlideUp 0.8s 0.5s ease both;
+  flex-wrap: wrap; justify-content: center;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: 52px;
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: 2px;
+}
+.hero-stat-num span { color: var(--accent2); }
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.hero-logo {
+  width: min(280px, 50vw);
+  display: block;
+  margin: 0 auto 40px;
+  filter: drop-shadow(0 0 40px rgba(168,85,247,0.4));
+  animation: fadeSlideUp 0.8s 0.05s ease both, floatLogo 6s 1s ease-in-out infinite;
+}
+@keyframes floatLogo {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-16px) rotate(-1deg); }
+  66% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── SCROLL INDICATOR ─── */
+.scroll-indicator {
+  position: absolute; bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: fadeSlideUp 1s 1s ease both;
+}
+.scroll-indicator span { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+.scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, var(--accent2), transparent);
+  animation: scrollDown 2s infinite;
+}
+@keyframes scrollDown {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.01% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ─── COLLAB SECTION ─── */
+.collab-section {
+  padding: 100px 6%;
+  position: relative;
+}
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent2);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.section-tag.visible { opacity: 1; transform: translateY(0); }
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 80px);
+  color: var(--white);
+  line-height: 0.9;
+  margin-bottom: 60px;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s 0.1s, transform 0.6s 0.1s;
+}
+.section-title.visible { opacity: 1; transform: translateY(0); }
+.section-title em { color: var(--accent2); font-style: normal; }
+
+.collab-card {
+  display: flex; align-items: center; gap: 60px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  padding: 56px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.7s, transform 0.7s, border-color 0.3s, box-shadow 0.3s;
+}
+.collab-card.visible { opacity: 1; transform: translateY(0); }
+.collab-card:hover { border-color: var(--border-bright); box-shadow: 0 0 60px rgba(124,58,237,0.12); }
+
+.collab-card::before {
+  content: '';
+  position: absolute; top: -1px; left: 40px; right: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent2), transparent);
+}
+.collab-card::after {
+  content: '';
+  position: absolute; top: 0; right: 0; width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.collab-img-wrap {
+  flex: 0 0 320px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+.collab-img-wrap img {
+  width: 100%; height: 280px;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  display: block;
+}
+.collab-card:hover .collab-img-wrap img { transform: scale(1.05); }
+.collab-img-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  border: 1px solid rgba(168,85,247,0.3);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.collab-content h2 {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 0.95;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+.collab-content h2 em { color: var(--accent2); font-style: normal; }
+.collab-content p {
+  font-size: 17px; color: var(--muted); line-height: 1.8; margin-bottom: 16px;
+}
+.collab-content p strong { color: var(--text); font-weight: 600; }
+
+/* ─── FEATURED PRODUCT ─── */
+.featured-section {
+  padding: 100px 6%;
+  position: relative;
+  overflow: hidden;
+}
+.featured-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(124,58,237,0.08), transparent 70%);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.featured-inner {
+  display: flex; align-items: center; gap: 80px;
+  opacity: 0; transform: translateX(-40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.featured-inner.visible { opacity: 1; transform: translateX(0); }
+
+.featured-product-img {
+  flex: 0 0 420px;
+  position: relative;
+}
+.featured-product-img img {
+  width: 100%;
+  filter: drop-shadow(0 20px 60px rgba(124,58,237,0.35));
+  animation: floatProduct 5s ease-in-out infinite;
+  display: block;
+}
+@keyframes floatProduct {
+  0%,100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-24px) rotate(1deg); }
+}
+
+.featured-product-img .glow-orb {
+  position: absolute; top: 50%; left: 50%;
+  width: 300px; height: 300px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(124,58,237,0.2), transparent 70%);
+  pointer-events: none; z-index: -1;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+@keyframes glowPulse { 0%,100%{opacity:0.8;transform:translate(-50%,-50%) scale(1)} 50%{opacity:1;transform:translate(-50%,-50%) scale(1.3)} }
+
+.featured-content {}
+.featured-price-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-display);
+  font-size: 56px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.featured-price-tag small {
+  font-family: var(--font-body);
+  font-size: 14px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 2px;
+  font-weight: 600;
+}
+.featured-price-old {
+  font-size: 14px; color: var(--muted);
+  text-decoration: line-through; margin-bottom: 32px;
+}
+
+.spec-list { list-style: none; margin: 32px 0; display: flex; flex-direction: column; gap: 12px; }
+.spec-list li {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 15px; color: var(--muted);
+}
+.spec-list li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent2);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent2);
+  flex-shrink: 0;
+}
+.spec-list li strong { color: var(--text); font-weight: 600; }
+
+/* ─── CAROUSEL ─── */
+.carousel-wrap {
+  padding: 60px 0;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+.carousel-track {
+  display: flex; gap: 24px;
+  animation: carouselScroll 28s linear infinite;
+  width: max-content;
+}
+.carousel-wrap:hover .carousel-track { animation-play-state: paused; }
+@keyframes carouselScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-1620px)} }
+
+.carousel-track img {
+  height: 160px; width: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  filter: grayscale(0.6) brightness(0.8);
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.carousel-track img:hover { filter: grayscale(0) brightness(1); transform: scale(1.08); border-color: var(--accent2); box-shadow: 0 0 24px var(--accent-glow); }
+
+/* ─── PRODUCTS PAGE ─── */
+.products-hero {
+  padding: 140px 6% 60px;
+  text-align: center;
+}
+.products-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 10vw, 120px);
+  line-height: 0.88;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.products-hero h1 em { color: transparent; -webkit-text-stroke: 1px var(--accent2); font-style: normal; }
+.products-hero p { font-size: 18px; color: var(--muted); max-width: 500px; margin: 0 auto; }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  padding: 40px 6% 100px;
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 36px 28px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+  cursor: pointer;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.5s, transform 0.5s, border-color 0.3s, box-shadow 0.3s;
+}
+.product-card.visible { opacity: 1; transform: translateY(0); }
+.product-card:hover { border-color: var(--border-bright); box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px var(--accent-glow2); transform: translateY(-12px); }
+
+.product-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(124,58,237,0.06), transparent 60%);
+  opacity: 0; transition: opacity 0.4s;
+}
+.product-card:hover::before { opacity: 1; }
+
+.product-card-badge {
+  position: absolute; top: 20px; right: 20px;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 100px;
+}
+
+.product-card img {
+  width: 100%; height: 200px;
+  object-fit: contain; margin-bottom: 24px;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+}
+.product-card:hover img { transform: scale(1.12) translateY(-8px); }
+
+.product-card h3 {
+  font-family: var(--font-display);
+  font-size: 28px; letter-spacing: 1px;
+  margin-bottom: 8px; color: var(--white);
+}
+.product-card p { font-size: 14px; color: var(--muted); margin-bottom: 20px; line-height: 1.6; }
+
+.product-card-price {
+  font-family: var(--font-mono);
+  font-size: 22px; color: var(--accent2);
+  font-weight: 700; margin-bottom: 24px;
+}
+
+.btn-card {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 32px;
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 700; font-size: 13px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  border-radius: 100px;
+  text-decoration: none; cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-card:hover { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 24px var(--accent-glow); }
+.btn-card svg { transition: transform 0.3s; }
+.btn-card:hover svg { transform: translateX(4px); }
+
+/* ─── ABOUT PAGE ─── */
+.about-hero {
+  padding: 140px 6% 80px;
+  max-width: 900px;
+}
+.about-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(60px, 9vw, 110px);
+  line-height: 0.88; margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+.about-hero h1 em { color: var(--accent2); font-style: normal; }
+
+.about-lead {
+  font-size: 22px; line-height: 1.7; color: var(--muted);
+  max-width: 700px; margin-bottom: 60px;
+}
+.about-lead strong { color: var(--text); font-weight: 600; }
+
+.about-values {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px; padding: 0 6% 100px;
+}
+.value-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px; padding: 36px 28px;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.5s, transform 0.5s, border-color 0.3s;
+}
+.value-card.visible { opacity: 1; transform: translateY(0); }
+.value-card:hover { border-color: var(--border-bright); }
+.value-num {
+  font-family: var(--font-display);
+  font-size: 56px; color: var(--accent);
+  line-height: 1; margin-bottom: 16px;
+  opacity: 0.4;
+}
+.value-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
+.value-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* ─── CONTACT PAGE ─── */
+.contact-hero {
+  padding: 140px 6% 60px;
+}
+.contact-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(60px, 10vw, 120px);
+  line-height: 0.88; margin-bottom: 60px;
+}
+.contact-hero h1 em { color: var(--accent2); font-style: normal; }
+
+.contact-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; padding: 0 6% 60px;
+}
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px; padding: 40px 36px;
+  display: flex; align-items: center; gap: 24px;
+  text-decoration: none; color: var(--text);
+  transition: all 0.4s;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s, border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+.contact-card.visible { opacity: 1; transform: translateY(0); }
+.contact-card:hover { border-color: var(--border-bright); background: var(--surface2); box-shadow: 0 8px 40px rgba(124,58,237,0.1); }
+
+.contact-icon {
+  width: 56px; height: 56px;
+  background: rgba(124,58,237,0.15);
+  border: 1px solid var(--border-bright);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; flex-shrink: 0;
+  transition: background 0.3s;
+}
+.contact-card:hover .contact-icon { background: rgba(124,58,237,0.25); }
+.contact-label { font-size: 12px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+.contact-value { font-size: 18px; font-weight: 600; color: var(--accent2); }
+
+/* ─── PRIVACY PAGE ─── */
+.privacy-page {
+  padding: 140px 6% 100px;
+  max-width: 780px;
+}
+.privacy-page h1 { font-family: var(--font-display); font-size: 64px; margin-bottom: 50px; line-height: 0.88; }
+.privacy-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+.privacy-list li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px; padding: 24px 28px;
+  font-size: 16px; line-height: 1.7; color: var(--muted);
+  transition: border-color 0.3s;
+}
+.privacy-list li:hover { border-color: var(--border-bright); }
+.privacy-list li strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 4px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 60px 6%;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px;
+  position: relative; z-index: 2;
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 28px; letter-spacing: 4px; color: var(--white);
+}
+.footer-logo span { color: var(--accent2); }
+.footer-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.footer-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 8px 16px; border-radius: 8px;
+  transition: all 0.3s; cursor: pointer;
+}
+.footer-links a:hover { color: var(--white); background: rgba(124,58,237,0.1); }
+.footer-copy { color: var(--muted); font-size: 13px; width: 100%; text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 12px; }
+
+/* ─── PAGE TRANSITIONS ─── */
+.page-transition-overlay {
+  position: fixed; inset: 0;
+  background: var(--accent);
+  z-index: 9000;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  pointer-events: none;
+}
+.page-transition-overlay.entering {
+  animation: slideIn 0.4s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+.page-transition-overlay.leaving {
+  animation: slideOut 0.4s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+@keyframes slideIn { to { transform: scaleY(1); } }
+@keyframes slideOut { from { transform: scaleY(1); transform-origin: top; } to { transform: scaleY(0); transform-origin: top; } }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 16px 4%; }
+  nav.scrolled { padding: 12px 4%; }
+  .menu { gap: 2px; }
+  .menu a { padding: 6px 10px; font-size: 11px; }
+  .collab-card { flex-direction: column; padding: 32px 24px; gap: 32px; }
+  .collab-img-wrap { flex: unset; width: 100%; }
+  .featured-inner { flex-direction: column; gap: 40px; }
+  .featured-product-img { flex: unset; width: 100%; max-width: 340px; margin: 0 auto; }
+  .hero-stats { gap: 24px; }
+  .about-hero { padding: 120px 4% 60px; }
+  body { cursor: auto; }
+  #cursor, #cursor-ring { display: none; }
+}
+
+@media (max-width: 600px) {
+  .menu a.nav-cta { display: none; }
+  .hero-cta-group { flex-direction: column; align-items: center; }
+  footer { flex-direction: column; align-items: center; text-align: center; }
+}
+
+/* ─── GLITCH EFFECT ─── */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute; inset: 0;
+  opacity: 0;
+}
+.glitch:hover::before {
+  color: #0ff; left: 2px; top: 1px;
+  clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
+  opacity: 0.6;
+  animation: glitch1 0.3s steps(1) infinite;
+}
+.glitch:hover::after {
+  color: #f0f; left: -2px; top: -1px;
+  clip-path: polygon(0 65%, 100% 65%, 100% 80%, 0 80%);
+  opacity: 0.6;
+  animation: glitch2 0.3s steps(1) infinite;
+}
+@keyframes glitch1 { 0%{clip-path:polygon(0 15%,100% 15%,100% 35%,0 35%)} 50%{clip-path:polygon(0 45%,100% 45%,100% 55%,0 55%)} }
+@keyframes glitch2 { 0%{clip-path:polygon(0 65%,100% 65%,100% 80%,0 80%)} 50%{clip-path:polygon(0 20%,100% 20%,100% 30%,0 30%)} }
+
+/* ─── HORIZONTAL MARQUEE ─── */
+.marquee-bar {
+  overflow: hidden;
+  background: var(--accent);
+  padding: 14px 0;
+  mask-image: none;
+}
+.marquee-inner {
+  display: flex; white-space: nowrap;
+  animation: marquee 18s linear infinite;
+}
+.marquee-inner span {
+  font-family: var(--font-display);
+  font-size: 18px; letter-spacing: 3px;
+  color: rgba(255,255,255,0.85);
+  padding: 0 32px;
+}
+.marquee-inner span::before { content: '✦'; margin-right: 32px; opacity: 0.5; }
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+</style>
 </head>
 <body>
 
-    <div id="scroll-progress"></div>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="scroll-progress"></div>
+<canvas id="particles-canvas"></canvas>
+<div class="page-transition-overlay" id="page-overlay"></div>
 
-    <nav id="navbar">
-        <div class="logo" onclick="showPage('home')">OLO<span>NE</span></div>
-        <div class="menu">
-            <a onclick="showPage('home')">Start</a>
-            <a onclick="showPage('oferta')">Produkty</a>
-            <a onclick="showPage('onas')">O marce</a>
-            <a onclick="showPage('kontakt')">Kontakt</a>
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="logo glitch" data-text="OLONE" onclick="navigate('home')">OLO<span>NE</span></div>
+  <div class="menu">
+    <a onclick="navigate('home')">Start</a>
+    <a onclick="navigate('oferta')">Produkty</a>
+    <a onclick="navigate('onas')">O marce</a>
+    <a onclick="navigate('kontakt')">Kontakt</a>
+    <a onclick="navigate('oferta')" class="nav-cta">Kup Teraz</a>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+
+  <!-- HERO -->
+  <section id="hero-section">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-grid-lines"></div>
+
+    <img src="logo.png" class="hero-logo" alt="OLONE Logo 2026" onerror="this.style.display='none'">
+
+    <div class="hero-badge">✦ Edycja limitowana 2026 ✦ Sprzęt nowej generacji</div>
+
+    <h1 class="hero-title">
+      POWER<br>
+      <span class="accent-word" data-text="YOUR">YOUR</span><br>
+      GAME
+    </h1>
+
+    <p class="hero-subtitle">
+      Polska marka stworzona z <strong>pasji do e-sportu</strong>. Mechaniczne klawiatury, precyzyjne myszki i profesjonalne akcesoria dla graczy, którzy nie akceptują kompromisów.
+    </p>
+
+    <div class="hero-cta-group">
+      <button class="btn-primary" onclick="navigate('oferta')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Odkryj Ofertę
+      </button>
+      <button class="btn-secondary" onclick="navigate('onas')">
+        O Marce OLONE
+      </button>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">50<span>M</span></div>
+        <div class="hero-stat-label">Kliknięć gwarancji</div>
+      </div>
+      <div class="hero-stat" style="border-left:1px solid rgba(124,58,237,0.2);border-right:1px solid rgba(124,58,237,0.2);padding:0 48px;">
+        <div class="hero-stat-num">1<span>ms</span></div>
+        <div class="hero-stat-label">Czas odpowiedzi</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5<span>★</span></div>
+        <div class="hero-stat-label">Ocena graczy</div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE BAR -->
+  <div class="marquee-bar">
+    <div class="marquee-inner">
+      <span>KLAWIATURA K61</span><span>MYSZKA GAMINGOWA</span><span>HUB USB-C</span>
+      <span>POLSKA MARKA</span><span>E-SPORT 2026</span><span>MECHANICZNE SWITCHE</span>
+      <span>RGB AKSAMITNE</span><span>POWER YOUR GAME</span><span>OLONE</span>
+      <span>KLAWIATURA K61</span><span>MYSZKA GAMINGOWA</span><span>HUB USB-C</span>
+      <span>POLSKA MARKA</span><span>E-SPORT 2026</span><span>MECHANICZNE SWITCHE</span>
+      <span>RGB AKSAMITNE</span><span>POWER YOUR GAME</span><span>OLONE</span>
+    </div>
+  </div>
+
+  <!-- COLLAB LIWKA -->
+  <section class="collab-section">
+    <div class="section-tag reveal">// OFICJALNA WSPÓŁPRACA</div>
+    <h2 class="section-title reveal">Elitarna<br>Współpraca: <em>LIWKA</em></h2>
+
+    <div class="collab-card reveal">
+      <div class="collab-img-wrap">
+        <img src="liwka.png" alt="LIWKA x OLONE" onerror="this.style.background='linear-gradient(135deg,#13131a,#1a1a2e)';this.style.height='280px'">
+      </div>
+      <div class="collab-content">
+        <h2>Sprzęt<br>Sprawdzony <em>W Boju</em></h2>
+        <p>W 2026 roku stawiamy na <strong>profesjonalizm najwyższego poziomu</strong>. Współpraca z topowym recenzentem <strong>LIWKA</strong> pozwala nam dostarczać sprzęt, który został sprawdzony w ekstremalnych warunkach gamingowych.</p>
+        <p>Każdy przełącznik i każda linia kodu w naszych hubach została wyselekcjonowana dla Twojego <strong>zwycięstwa</strong>.</p>
+        <button class="btn-primary" onclick="navigate('oferta')" style="margin-top:12px">
+          Sprawdź produkty
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED K61 -->
+  <section class="featured-section">
+    <div class="section-tag reveal">// BESTSELLER MIESIĄCA</div>
+    <h2 class="section-title reveal">Bestia:<br><em>Klawiatura K61</em></h2>
+
+    <div class="featured-inner reveal">
+      <div class="featured-product-img">
+        <div class="glow-orb"></div>
+        <img src="projekt_66.png" alt="Klawiatura OLONE K61" onerror="this.style.display='none'">
+      </div>
+      <div class="featured-content">
+        <div class="featured-price-tag">
+          89,90 PLN
+          <small>/ szt.</small>
         </div>
-    </nav>
+        <div class="featured-price-old">Stara cena: 129,00 PLN — oszczędzasz 31%</div>
 
-    <div id="home" class="page active">
-        <img src="logo.png" class="hero-img" alt="OLONE Logo Edycja 2026" title="Oficjalne Logo OLONE">
-        
-        <section class="news-box">
-            <img src="liwka.png" alt="Współpraca e-sportowa OLONE x LIWKA" title="LIWKA recenzuje OLONE" style="width:350px; border-radius:20px;">
-            <div>
-                <h2>Elitarna Współpraca: LIWKA</h2>
-                <p>W 2026 roku stawiamy na profesjonalizm. Współpraca z topowym recenzentem <strong>LIWKA</strong> pozwala nam dostarczać sprzęt, który został sprawdzony w ekstremalnych warunkach gamingowych. Każdy przełącznik i każda linia kodu w naszych hubach została wyselekcjonowana dla Twojego zwycięstwa.</p>
-            </div>
-        </section>
-
-        <section class="news-box">
-            <div>
-                <h2>Bestia: Klawiatura K61</h2>
-                <p>Odkryj nową definicję prędkości. <strong>Niebieskie Switche</strong> nowej generacji o wytrzymałości 50 milionów kliknięć, pełne podświetlenie <strong>Aksamitne RGB</strong> i ultraszybkie złącze USB-C. Klawisze wykonane metodą Double-Shot Injection sprawiają, że Twoja klawiatura będzie wyglądać jak nowa nawet po latach intensywnej gry.</p>
-                <p style="font-size: 24px; color: #fff; font-weight: 900;">Cena: 89,90 PLN</p>
-                <a onclick="showPage('oferta')" class="btn">Poznaj ofertę</a>
-            </div>
-            <img src="projekt_66.png" class="float-anim" alt="Klawiatura mechaniczna OLONE K61 RGB" title="Klawiatura Mechaniczna K61" style="width:350px; border-radius:20px;">
-        </section>
-
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <img src="projekt_66.png" alt="Klawiatura K61" loading="lazy">
-                <img src="projekt_56.png" alt="Myszka Gamingowa" loading="lazy">
-                <img src="hub_1.png" alt="Hub USB-C 3.0" loading="lazy">
-                <img src="projekt_71.png" alt="Zestaw Gamingowy Pro" loading="lazy">
-                <img src="projekt_79.png" alt="Zestaw Premium White" loading="lazy">
-                <img src="projekt_66.png" alt="Klawiatura Mechaniczna" loading="lazy">
-            </div>
-        </div>
-    </div>
-
-    <div id="oferta" class="page">
-        <h2 style="text-align: center; font-size: 40px; margin-bottom: 50px;">Nasza Oferta 2026</h2>
-        <div class="grid">
-            <article class="card">
-                <img src="projekt_66.png" alt="Klawiatura OLONE K61" title="Klawiatura K61">
-                <h3>Klawiatura Mechaniczna K61</h3>
-                <a href="https://allegro.pl/uzytkownik/OLONE/elektronika" class="btn" target="_blank">Kup Teraz</a>
-            </article>
-            <article class="card">
-                <img src="projekt_56.png" alt="Myszka OLONE" title="Myszka Gamingowa">
-                <h3>Myszka </h3>
-                <a href="https://allegro.pl/uzytkownik/OLONE/elektronika" class="btn" target="_blank">Kup Teraz</a>
-            </article>
-            <article class="card">
-                <img src="hub_1.png" alt="HUB USB OLONE" title="HUB USB-C">
-                <h3>HUB USB</h3>
-                <a href="https://allegro.pl/uzytkownik/OLONE/elektronika" class="btn" target="_blank">Kup Teraz</a>
-            </article>
-            <article class="card">
-                <img src="projekt_71.png" alt="Zestaw Bezprzewodowy" title="Zestaw Wireless">
-                <h3>Zestaw Bezprzewodowy </h3>
-                <a href="https://allegro.pl/uzytkownik/OLONE/elektronika" class="btn" target="_blank">Kup Teraz</a>
-            </article>
-            <article class="card">
-                <img src="projekt_79.png" alt="Zestaw Przewodowy" title="Zestaw Pro">
-                <h3>Zestaw Przewodowy</h3>
-                <a href="https://allegro.pl/uzytkownik/OLONE/elektronika" class="btn" target="_blank">Kup Teraz</a>
-            </article>
-        </div>
-    </div>
-
-    <div id="onas" class="page">
-        <h2 style="font-size: 40px;">O marce OLONE</h2>
-        <p style="max-width: 800px; font-size: 20px;">OLONE to polska marka zrodzona z czystej pasji do cyfrowej doskonałości. W 2026 roku nie jesteśmy już tylko sklepem – jesteśmy społecznością graczy, która wierzy, że profesjonalny sprzęt powinien być dostępny dla każdego. Nasze produkty łączą w sobie inżynierię IT z estetyką e-sportową. Każdy element, od kabla po przełącznik, jest projektowany tak, aby zminimalizować opóźnienia i zmaksymalizować Twoją satysfakcję z gry.</p>
-    </div>
-
-    <div id="kontakt" class="page">
-        <h2 style="font-size: 40px;">Skontaktuj się</h2>
-        <p style="font-size: 22px;">📧 Email: <span style="color: var(--accent);">sklepolone@outlook.com</span></p>
-        <p style="font-size: 22px;">📱 Telefon: <span style="color: var(--accent);">+48 608 152 502</span></p>
-    </div>
-
-    <div id="polityka" class="page">
-        <h2>Polityka Prywatności OLONE</h2>
-        <ul style="list-style: none; padding: 0; line-height: 2;">
-            <li>🛡️ Administrator danych: Właściciel marki OLONE.</li>
-            <li>📦 Cel: Realizacja Twoich zamówień i wsparcie techniczne.</li>
-            <li>🔒 Bezpieczeństwo: Certyfikat SSL i bezpieczne płatności Allegro.</li>
-            <li>⚖️ Prawa: Pełny wgląd, edycja i prawo do zapomnienia.</li>
-            <li>🚀 Nadzór: Zgodność z najnowszymi wytycznymi UODO i RODO 2026.</li>
+        <ul class="spec-list">
+          <li><strong>Niebieskie Switche</strong> — 50 milionów kliknięć gwarancji</li>
+          <li><strong>Podświetlenie Aksamitne RGB</strong> — milion kolorów</li>
+          <li><strong>USB-C</strong> — ultraszybkie złącze nowej generacji</li>
+          <li><strong>Double-Shot Injection</strong> — legendy nie blakną</li>
+          <li><strong>Anti-Ghosting</strong> — każdy klawisz rejestrowany</li>
         </ul>
-    </div>
 
-    <footer>
-        <p>© 2026 OLONE. Wszystkie prawa zastrzeżone. | <a onclick="showPage('polityka')" style="cursor:pointer">Polityka Prywatności</a></p>
-        <div style="margin-top: 20px;">
-            <a href="https://www.instagram.com/olone.ol/" target="_blank">INSTAGRAM</a>
-            <a href="#" target="_blank">YOUTUBE</a>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px">
+          <a href="https://allegro.pl/oferta/klawiatura-mechaniczna-olone-k61-rgb-60-gamingowa-usb-c-mechanik-18497945536" target="_blank" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg>
+            Kup na Allegro
+          </a>
+          <button class="btn-secondary" onclick="navigate('oferta')">Cała oferta</button>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Shrink Nav and Scroll Progress
-        window.onscroll = function() {
-            const nav = document.getElementById("navbar");
-            const progress = document.getElementById("scroll-progress");
-            const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-            const percentage = (window.pageYOffset / totalScroll) * 100;
-            
-            progress.style.width = percentage + "%";
+  <!-- CAROUSEL -->
+  <div class="carousel-wrap">
+    <div class="carousel-track">
+      <img src="projekt_66.png" alt="Klawiatura K61" onerror="this.style.display='none'">
+      <img src="projekt_56.png" alt="Myszka Gamingowa" onerror="this.style.display='none'">
+      <img src="hub_1.png" alt="Hub USB-C" onerror="this.style.display='none'">
+      <img src="projekt_71.png" alt="Zestaw Pro" onerror="this.style.display='none'">
+      <img src="projekt_79.png" alt="Zestaw Premium" onerror="this.style.display='none'">
+      <img src="projekt_66.png" alt="Klawiatura K61" onerror="this.style.display='none'">
+      <img src="projekt_56.png" alt="Myszka" onerror="this.style.display='none'">
+      <img src="hub_1.png" alt="Hub" onerror="this.style.display='none'">
+      <img src="projekt_71.png" alt="Zestaw" onerror="this.style.display='none'">
+      <img src="projekt_79.png" alt="Premium" onerror="this.style.display='none'">
+      <img src="projekt_66.png" alt="K61" onerror="this.style.display='none'">
+      <img src="projekt_56.png" alt="Myszka" onerror="this.style.display='none'">
+    </div>
+  </div>
 
-            if (window.pageYOffset > 100) { 
-                nav.classList.add("shrink"); 
-            } else { 
-                nav.classList.remove("shrink"); 
-            }
-        };
+</div><!-- /home -->
 
-        // Smooth Page Switcher 2026
-        function showPage(p) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(x => { 
-                x.classList.remove('active'); 
-                x.style.display = 'none'; 
-            });
-            const activePage = document.getElementById(p);
-            activePage.style.display = 'block';
-            setTimeout(() => {
-                activePage.classList.add('active');
-            }, 50);
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-    </script>
+<!-- PRODUCTS PAGE -->
+<div id="oferta" class="page">
+  <div class="products-hero">
+    <div class="section-tag reveal" style="display:inline-block">// SKLEP OLONE 2026</div>
+    <h1 class="reveal">Nasza<br><em>Oferta</em></h1>
+    <p class="reveal" style="margin-top:20px">Profesjonalny sprzęt gamingowy dostępny na Allegro. Szybka dostawa, gwarancja jakości.</p>
+  </div>
+
+  <div class="products-grid">
+
+    <article class="product-card reveal" onclick="window.open('https://allegro.pl/oferta/klawiatura-mechaniczna-olone-k61-rgb-60-gamingowa-usb-c-mechanik-18497945536','_blank')" style="cursor:pointer">
+      <div class="product-card-badge">BESTSELLER</div>
+      <img src="projekt_66.png" alt="Klawiatura OLONE K61" onerror="this.src='';this.style.height='200px';this.style.background='var(--surface2)'">
+      <h3>Klawiatura K61</h3>
+      <p>Niebieskie switche, RGB, USB-C. Mechaniczna precyzja dla wymagających graczy.</p>
+      <div class="product-card-price">Sprawdź cenę</div>
+      <span class="btn-card">
+        Kup Teraz
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </article>
+
+    <article class="product-card reveal" style="transition-delay:0.1s;cursor:pointer" onclick="window.open('https://allegro.pl/oferta/myszka-olone-bluetooth-2-4g-rgb-usb-c-1600dpi-slim-18497922505','_blank')">
+      <img src="projekt_56.png" alt="Myszka OLONE" onerror="this.src='';this.style.height='200px';this.style.background='var(--surface2)'">
+      <h3>Myszka Pro</h3>
+      <p>Ergonomiczna mysz gamingowa z precyzyjnym sensorem optycznym.</p>
+      <div class="product-card-price">Sprawdź cenę</div>
+      <span class="btn-card">
+        Kup Teraz
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </article>
+
+    <article class="product-card reveal" style="transition-delay:0.2s;cursor:pointer" onclick="window.open('https://allegro.pl/oferta/hub-usb-olone-7w1-usb-c-usb-3-0-18467207385','_blank')">
+      <img src="hub_1.png" alt="HUB USB OLONE" onerror="this.src='';this.style.height='200px';this.style.background='var(--surface2)'">
+      <h3>HUB USB</h3>
+      <p>Rozgałęźnik USB-C z pełną obsługą USB 3.0. Rozszerz swoje możliwości.</p>
+      <div class="product-card-price">Sprawdź cenę</div>
+      <span class="btn-card">
+        Kup Teraz
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </article>
+
+    <article class="product-card reveal" style="transition-delay:0.3s;cursor:pointer" onclick="window.open('https://allegro.pl/oferta/zestaw-bezprzewodowy-olone-klawiatura-mysz-8875-silent-1600dpi-18500925955','_blank')">
+      <div class="product-card-badge">NOWE</div>
+      <img src="projekt_71.png" alt="Zestaw Bezprzewodowy" onerror="this.src='';this.style.height='200px';this.style.background='var(--surface2)'">
+      <h3>Zestaw Wireless</h3>
+      <p>Kompletny bezprzewodowy zestaw gamingowy. Wolność bez kompromisów.</p>
+      <div class="product-card-price">Sprawdź cenę</div>
+      <span class="btn-card">
+        Kup Teraz
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </article>
+
+    <article class="product-card reveal" style="transition-delay:0.4s;cursor:pointer" onclick="window.open('https://allegro.pl/oferta/zestaw-przewodowy-olone-ld-809-klawiatura-pelnowymiarowa-mysz-usb-18500961136','_blank')">
+      <img src="projekt_79.png" alt="Zestaw Przewodowy" onerror="this.src='';this.style.height='200px';this.style.background='var(--surface2)'">
+      <h3>Zestaw Pro</h3>
+      <p>Przewodowy zestaw dla graczy wymagających maksymalnej stabilności połączenia.</p>
+      <div class="product-card-price">Sprawdź cenę</div>
+      <span class="btn-card">
+        Kup Teraz
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </article>
+
+  </div>
+</div><!-- /oferta -->
+
+<!-- ABOUT PAGE -->
+<div id="onas" class="page">
+  <div class="about-hero">
+    <div class="section-tag reveal" style="display:inline-block">// NASZA HISTORIA</div>
+    <h1 class="reveal">O Marce<br><em>OLONE</em></h1>
+    <p class="about-lead reveal">OLONE to <strong>polska marka</strong> zrodzona z czystej pasji do cyfrowej doskonałości. W 2026 roku nie jesteśmy już tylko sklepem — jesteśmy <strong>społecznością graczy</strong>, która wierzy, że profesjonalny sprzęt powinien być dostępny dla każdego.</p>
+    <p class="about-lead reveal" style="font-size:18px;transition-delay:0.2s">Nasze produkty łączą w sobie <strong>inżynierię IT z estetyką e-sportową</strong>. Każdy element, od kabla po przełącznik, jest projektowany tak, aby zminimalizować opóźnienia i zmaksymalizować Twoją satysfakcję z gry.</p>
+  </div>
+
+  <div class="about-values">
+    <div class="value-card reveal">
+      <div class="value-num">01</div>
+      <h3>Pasja</h3>
+      <p>Każdy produkt rodzi się z pasji do e-sportu i zrozumienia potrzeb graczy na każdym poziomie.</p>
+    </div>
+    <div class="value-card reveal" style="transition-delay:0.1s">
+      <div class="value-num">02</div>
+      <h3>Jakość</h3>
+      <p>Komponenty testowane w ekstremalnych warunkach. 50 milionów kliknięć to nie slogan — to obietnica.</p>
+    </div>
+    <div class="value-card reveal" style="transition-delay:0.2s">
+      <div class="value-num">03</div>
+      <h3>Dostępność</h3>
+      <p>Profesjonalny sprzęt w przystępnej cenie. Wierzymy, że każdy gracz zasługuje na to, co najlepsze.</p>
+    </div>
+    <div class="value-card reveal" style="transition-delay:0.3s">
+      <div class="value-num">04</div>
+      <h3>Społeczność</h3>
+      <p>Jesteśmy czymś więcej niż sklepem. Jesteśmy ruchem graczy, którzy dążą do doskonałości.</p>
+    </div>
+  </div>
+</div><!-- /onas -->
+
+<!-- CONTACT PAGE -->
+<div id="kontakt" class="page">
+  <div class="contact-hero">
+    <div class="section-tag reveal" style="display:inline-block">// NAPISZ DO NAS</div>
+    <h1 class="reveal">Skontaktuj<br><em>się z nami</em></h1>
+
+    <div class="contact-grid">
+      <a href="mailto:sklepolone@outlook.com" class="contact-card reveal">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">sklepolone@outlook.com</div>
+        </div>
+      </a>
+      <a href="tel:+48608152502" class="contact-card reveal" style="transition-delay:0.1s">
+        <div class="contact-icon">📱</div>
+        <div>
+          <div class="contact-label">Telefon</div>
+          <div class="contact-value">+48 608 152 502</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/olone.ol/" target="_blank" class="contact-card reveal" style="transition-delay:0.2s">
+        <div class="contact-icon">📸</div>
+        <div>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value">@olone.ol</div>
+        </div>
+      </a>
+      <a href="https://allegro.pl/uzytkownik/OLONE/elektronika" target="_blank" class="contact-card reveal" style="transition-delay:0.3s">
+        <div class="contact-icon">🛒</div>
+        <div>
+          <div class="contact-label">Sklep</div>
+          <div class="contact-value">Allegro — OLONE</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div><!-- /kontakt -->
+
+<!-- PRIVACY PAGE -->
+<div id="polityka" class="page">
+  <div class="privacy-page">
+    <h1>Polityka<br>Prywatności</h1>
+    <ul class="privacy-list">
+      <li><strong>🛡️ Administrator danych</strong>Właściciel marki OLONE odpowiada za bezpieczeństwo wszystkich danych osobowych.</li>
+      <li><strong>📦 Cel przetwarzania</strong>Realizacja zamówień, obsługa klienta i wsparcie techniczne po zakupie.</li>
+      <li><strong>🔒 Bezpieczeństwo</strong>Certyfikat SSL i bezpieczne płatności realizowane przez platformę Allegro.</li>
+      <li><strong>⚖️ Prawa użytkownika</strong>Pełny wgląd do swoich danych, możliwość edycji i prawo do usunięcia konta.</li>
+      <li><strong>🚀 Zgodność z prawem</strong>Polityka zgodna z najnowszymi wytycznymi UODO i rozporządzeniem RODO 2026.</li>
+    </ul>
+  </div>
+</div><!-- /polityka -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">OLO<span>NE</span></div>
+  <div class="footer-links">
+    <a onclick="navigate('home')">Start</a>
+    <a onclick="navigate('oferta')">Produkty</a>
+    <a onclick="navigate('onas')">O marce</a>
+    <a onclick="navigate('kontakt')">Kontakt</a>
+    <a onclick="navigate('polityka')">Prywatność</a>
+    <a href="https://www.instagram.com/olone.ol/" target="_blank">Instagram</a>
+    <a href="https://allegro.pl/uzytkownik/OLONE/elektronika" target="_blank">Allegro</a>
+  </div>
+  <div class="footer-copy">© 2026 OLONE. Wszelkie prawa zastrzeżone. Polska marka gamingowa.</div>
+</footer>
+
+<script>
+// ─── CURSOR ───
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+(function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx+'px'; ring.style.top = ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button,.card,.product-card,.contact-card').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.width='20px';cursor.style.height='20px';ring.style.width='56px';ring.style.height='56px';ring.style.opacity='0.4'; });
+  el.addEventListener('mouseleave', () => { cursor.style.width='12px';cursor.style.height='12px';ring.style.width='36px';ring.style.height='36px';ring.style.opacity='0.6'; });
+});
+
+// ─── SCROLL PROGRESS + NAV SHRINK ───
+window.addEventListener('scroll', () => {
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('scroll-progress').style.width = (window.scrollY / total * 100) + '%';
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+  revealElements();
+});
+
+// ─── REVEAL ON SCROLL ───
+function revealElements() {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.88) el.classList.add('visible');
+  });
+}
+// Also use class aliases section-tag/section-title
+document.querySelectorAll('.section-tag,.section-title,.collab-card,.featured-inner,.value-card,.contact-card,.product-card').forEach(el => el.classList.add('reveal'));
+
+// ─── PAGE NAVIGATION ───
+const overlay = document.getElementById('page-overlay');
+let current = 'home';
+function navigate(id) {
+  if (id === current) { window.scrollTo({top:0,behavior:'smooth'}); return; }
+  overlay.className = 'page-transition-overlay entering';
+  setTimeout(() => {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const next = document.getElementById(id);
+    if (next) { next.classList.add('active'); current = id; }
+    overlay.className = 'page-transition-overlay leaving';
+    window.scrollTo({top:0,behavior:'instant'});
+    setTimeout(() => { overlay.className='page-transition-overlay'; revealElements(); }, 400);
+  }, 380);
+}
+
+// ─── PARTICLES ───
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, pts = [];
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+for (let i = 0; i < 60; i++) pts.push({
+  x: Math.random()*1920, y: Math.random()*1080,
+  vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
+  r: Math.random()*1.5+0.5, a: Math.random()
+});
+(function anim() {
+  ctx.clearRect(0,0,W,H);
+  pts.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x<0) p.x=W; if (p.x>W) p.x=0;
+    if (p.y<0) p.y=H; if (p.y>H) p.y=0;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(168,85,247,${p.a*0.4})`;
+    ctx.fill();
+  });
+  pts.forEach((a,i) => pts.slice(i+1).forEach(b => {
+    const d = Math.hypot(a.x-b.x, a.y-b.y);
+    if (d < 120) {
+      ctx.beginPath();
+      ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+      ctx.strokeStyle = `rgba(124,58,237,${0.15*(1-d/120)})`;
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+    }
+  }));
+  requestAnimationFrame(anim);
+})();
+
+// ─── INIT ───
+window.addEventListener('load', revealElements);
+setTimeout(revealElements, 300);
+</script>
 </body>
 </html>
